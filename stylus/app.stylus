@@ -1,0 +1,172 @@
+$connected-text = #6C7A89
+$connected-back = #ECF0F1
+
+$active-text = #00B16A
+$active-back = #C8F7C5
+
+$inactive-text = #F9690E
+$inactive-back = #FDE3A7
+
+@font-face
+  font-family: 'Open Sans Condensed'
+  font-style: normal
+  font-weight: 300
+  src: local('Open Sans Cond Light'), local('OpenSans-CondensedLight'), url(../font/open-sans-condensed.woff) format('woff')
+
+html
+body
+  height: 100%
+
+a
+  text-decoration: none
+
+input
+input::-moz-selection
+input::selection
+  background: $connected-back
+  border: none
+  color: $connected-text
+
+.container
+  height: 100%
+  overflow: hidden
+  width: 100%
+
+.logo a
+.text
+  color: $connected-back
+  font-family: 'Open Sans Condensed', sans-serif
+  font-weight: normal
+
+.logo
+  font-size: 3em
+  left: 3%
+  position: fixed
+  top: 1%
+
+.arrow-container
+  display: block
+  margin: auto
+
+
+.arrow
+  height: 100%
+  opacity: 0.9%
+  width: 100%
+
+  path
+    fill: $connected-back
+
+.border
+  background-color: transparent
+  height: 0
+  width: 0
+
+.restore
+.distance
+  bottom: 2%
+  right: 3%
+  font-size: 4.5em
+  position: fixed
+
+.wallpaper
+  background-color: $connected-text
+  height: 100%
+  overflow: hidden
+  width: 100%
+
+.home
+  margin: 0 auto
+
+  p
+  .link
+  .btn
+    font-size: 1.5em
+    text-align: center
+    margin: 0 auto
+
+  p
+    margin: 5% 0
+
+  p
+  .link
+    width: 100%
+
+.list
+  margin: 0 5%
+
+  li
+    margin: 10% 0
+
+.btn
+  background-color: $connected-back
+  border: medium none
+  border-radius: 10px
+  color: $connected-text
+  display: block
+  font-size: 17px
+  font-weight: bold
+  line-height: 1.471
+  padding: 10px 19px
+  text-align: center
+  vertical-align: middle
+
+  &.text
+    font-size: 2em
+
+@media screen and (orientation: landscape)
+  .arrow-container
+    margin-top: 5%
+
+  .arrow-container
+    height: 80%
+    width: auto
+
+@media screen and (orientation: portrait)
+  .arrow-container
+    margin-top: 40%
+
+  .arrow-container
+    height: auto
+    width: 80%
+
+/**
+ * Inactive target swap color
+ */
+.inactive
+  &.wallpaper
+    background-color: $inactive-back
+
+  .logo a
+  .text
+    color: $inactive-text
+
+  .arrow path
+    fill: $inactive-text
+
+/**
+ * Active target swap color
+ */
+.active
+  &.wallpaper
+    background-color: $active-back
+  .logo a
+  .text
+      color: $active-text
+
+  .arrow path
+    fill: $active-text
+
+/**
+ * transition and rotations
+ */
+.logo a
+.text
+  transition: color 4s
+
+.wallpaper
+  transition: background-color 4s
+
+.arrow path
+  transition: fill 4s
+

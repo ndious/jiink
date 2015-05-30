@@ -1,0 +1,33 @@
+{
+  "version": "1.0.0",
+  "name": "j'inc",
+  "description": "Retrieve your friends quickly",
+  "launch_path": "/index.html",
+  "type": "web",
+  "orientation": ["portrait"],
+  "permissions": {
+    "geolocation": {
+      "description": "To get your location and retrieve your friend"
+    }
+  },
+  "fullscreen": "true",
+  "icons": {
+    "16": "/img/app-icons/icon-16.png",
+    "48": "/img/app-icons/icon-48.png",
+    "128": "/img/app-icons/icon-128.png"
+  },
+  "developer": {
+    "name": "Nicolas Dufreche",
+    "url": "http://the.12.gy",
+    "email": "n.dufrehce@gmail.com"
+  },
+  "locales": {
+    "fr": {
+      "description": "Find your friend quickly",
+      "developer": {
+        "url": "http://jinc.12.gy"
+      }
+    }
+  },
+  "default_locale": "en"
+}

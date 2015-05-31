@@ -10,7 +10,7 @@ var
    * @return {Void}
    */
   buildRequestContent = function buildRequestContent(position) {
-    retrun JSON.stringify({
+    return JSON.stringify({
         position: position,
         track: session.getTrakId()
     });
@@ -39,7 +39,7 @@ var
    */
   sendRequest = function sendRequest(position) {
     var promise = new Promise(function (fulfill, reject) {
-      var xhr = new XMLHttpRequest(),
+      var xhr = new XMLHttpRequest();
 
       xhr.onreadystatechange = onreadystatechange.bind(xmlhttp, fulfill, reject);
 

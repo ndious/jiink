@@ -20,7 +20,8 @@
     "stylus": "^0.51.1",
     "tape": "^4.0.0",
     "uglify-js": "^2.4.23",
-    "watchify": "^3.2.1"
+    "watchify": "^3.2.1",
+    "browserify": "^10.2.3"
   },
   "dependencies": {
     "es6-promise": "^2.1.1"

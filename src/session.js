@@ -115,8 +115,9 @@ var
      * @param  {String} key preference identitfier
      * @return {Mixed}
      */
-    getPreference: function session_getPreference(key)
-    }
+    getPreference: function session_getPreference(key) {
+      return;
+    },
     /**
      * get tracked user Id
      *

@@ -1,13 +1,13 @@
 var
   config = {
-    request {
+    request: {
       url: 'https://io.jink.12.gy',
       type: 'json',
       action: 'POST',
       accept: 'application/json'
     },
 
-    base_url: 'https://io.jink.12.gy'
+    base_url: 'https://io.jink.12.gy',
 
     token_length: 10
   };

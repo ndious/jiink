@@ -3,7 +3,7 @@ var
   Point = require('./point'),
   orientation = require('./orientation'),
   config = require('./config'),
-  ui = require('./ui');
+  ui = require('./ui'),
 
   me = false,
   target = false;
@@ -40,7 +40,7 @@ if ("geolocation" in navigator) {
     me = new Point(create(position.coords));
   });
 
-  window.ondeviceorientation =  onDfunctioneviceOrientation(event) {
+  window.ondeviceorientation =  function onDeviceOrientation(event) {
 
     if (me !== false && target !== false) {
       delta = (orientation.getDelta(me, target, (360 - event.alpha)) * Math.PI / 180);

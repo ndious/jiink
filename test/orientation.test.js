@@ -1,7 +1,10 @@
 var
   test = require('tape'),
   Point = require('./../src/point'),
-  orientation = require('./../src/orientation');
+  orientation = require('./../src/orientation'),
+  round = function (value) {
+    return Math.round(value * 10000) / 10000;
+  };
 
 test('Orientation test 0', function (t) {
   t.plan(5);
@@ -17,8 +20,19 @@ test('Orientation test 0', function (t) {
   t.equal(orientation.getDelta(pointA, pointB, 306), 0 - 306);
 });
 
-test('Orientation test 1 to 44', {skip: true}, function (t) {
+test('Orientation test 1 to 44', function (t) {
   t.plan(5);
+    
+  var
+    pointA = Point([1, 1]),
+    pointB = Point([5, 4]),
+    zero = Math.acos(4/5) * 180 / Math.PI;
+
+  t.equal(round(orientation.getDelta(pointA, pointB, zero)), 0);
+  t.equal(round(orientation.getDelta(pointA, pointB, 25)), round(zero - 25));
+  t.equal(round(orientation.getDelta(pointA, pointB, 98)), round(zero - 98));
+  t.equal(round(orientation.getDelta(pointA, pointB, 203)), round(zero - 203));
+  t.equal(round(orientation.getDelta(pointA, pointB, 306)), round(zero - 306));
 });
   
 test('Orientation test 45', function (t) {  

@@ -49,8 +49,19 @@ test('Orientation test 45', function (t) {
   t.equal(orientation.getDelta(pointB, pointA, 315), 45 - 315);
 });
 
-test('Orientation test 46 to 89', {skip: true}, function (t) {
+test('Orientation test 46 to 89', function (t) {
   t.plan(5);
+
+  var
+    pointA = Point([1, 1]),
+    pointB = Point([4, 5]),
+    zero = Math.acos(3/5) * 180 / Math.PI;
+
+  t.equal(round(orientation.getDelta(pointA, pointB, zero)), 0);
+  t.equal(round(orientation.getDelta(pointA, pointB, 25)), round(zero - 25));
+  t.equal(round(orientation.getDelta(pointA, pointB, 98)), round(zero - 98));
+  t.equal(round(orientation.getDelta(pointA, pointB, 203)), round(zero - 203));
+  t.equal(round(orientation.getDelta(pointA, pointB, 306)), round(zero - 306));
 });
 
 test('Orientation test 90', function (t) {

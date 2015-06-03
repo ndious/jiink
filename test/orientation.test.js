@@ -46,7 +46,7 @@ test('Orientation test 45', function (t) {
   t.equal(orientation.getDelta(pointA, pointB, 15), 45 - 15);
   t.equal(orientation.getDelta(pointA, pointB, 133), 45 - 133);
   t.equal(orientation.getDelta(pointA, pointB, 225), 45 - 225);
-  t.equal(orientation.getDelta(pointB, pointA, 315), 45 - 315);
+  t.equal(orientation.getDelta(pointA, pointB, 316), 45 - 316);
 });
 
 test('Orientation test 46 to 89', function (t) {
@@ -78,8 +78,19 @@ test('Orientation test 90', function (t) {
   t.equal(orientation.getDelta(pointA, pointB, 354), 90 - 354);
 });
 
-test('Orientation test 91 to 134', {skip: true}, function (t) {
+test('Orientation test 91 to 134', function (t) {
   t.plan(5);
+  
+  var
+    pointA = Point([-1, 1]),
+    pointB = Point([-4, 5]),
+    zero = 90 + Math.acos(4/5) * 180 / Math.PI;
+
+  t.equal(round(orientation.getDelta(pointA, pointB, zero)), 0);
+  t.equal(round(orientation.getDelta(pointA, pointB, 25)), round(zero - 25));
+  t.equal(round(orientation.getDelta(pointA, pointB, 98)), round(zero - 98));
+  t.equal(round(orientation.getDelta(pointA, pointB, 203)), round(zero - 203));
+  t.equal(round(orientation.getDelta(pointA, pointB, 306)), round(zero - 306));
 });
 
 test('Orientation test 135', function (t) {
@@ -96,8 +107,19 @@ test('Orientation test 135', function (t) {
   t.equal(orientation.getDelta(pointA, pointB, 315), 135 - 315);
 });
 
-test('Orientation test 136 to 179', {skip: true}, function (t) {
+test('Orientation test 136 to 179', function (t) {
   t.plan(5);
+  
+  var
+    pointA = Point([-1, 1]),
+    pointB = Point([-5, 4]),
+    zero = 90 + Math.acos(3/5) * 180 / Math.PI;
+
+  t.equal(round(orientation.getDelta(pointA, pointB, zero)), 0);
+  t.equal(round(orientation.getDelta(pointA, pointB, 25)), round(zero - 25));
+  t.equal(round(orientation.getDelta(pointA, pointB, 98)), round(zero - 98));
+  t.equal(round(orientation.getDelta(pointA, pointB, 203)), round(zero - 203));
+  t.equal(round(orientation.getDelta(pointA, pointB, 306)), round(zero - 306));
 });
 
 test('Orientation test 180', function (t) {
@@ -114,8 +136,19 @@ test('Orientation test 180', function (t) {
   t.equal(orientation.getDelta(pointB, pointA, 314), 180 - 314);
 });
 
-test('Orientation test 181 to 224', {skip: true}, function (t) {
+test('Orientation test 181 to 224', function (t) {
   t.plan(5);
+  
+  var
+    pointA = Point([-1, -1]),
+    pointB = Point([-5, -4]),
+    zero = 180 + Math.acos(4/5) * 180 / Math.PI;
+
+  t.equal(round(orientation.getDelta(pointA, pointB, zero)), 0);
+  t.equal(round(orientation.getDelta(pointA, pointB, 25)), round(zero - 25));
+  t.equal(round(orientation.getDelta(pointA, pointB, 98)), round(zero - 98));
+  t.equal(round(orientation.getDelta(pointA, pointB, 203)), round(zero - 203));
+  t.equal(round(orientation.getDelta(pointA, pointB, 306)), round(zero - 306));
 });
 
 test('Orientation test 225', function (t) {
@@ -132,8 +165,19 @@ test('Orientation test 225', function (t) {
   t.equal(orientation.getDelta(pointB, pointA, 318), 225 - 318);
 });
 
-test('Orientation test 226 to 269', {skip: true}, function (t) {
+test('Orientation test 226 to 269', function (t) {
   t.plan(5);
+  
+  var
+    pointA = Point([-1, -1]),
+    pointB = Point([-4, -5]),
+    zero = 180 + Math.acos(3/5) * 180 / Math.PI;
+
+  t.equal(round(orientation.getDelta(pointA, pointB, zero)), 0);
+  t.equal(round(orientation.getDelta(pointA, pointB, 25)), round(zero - 25));
+  t.equal(round(orientation.getDelta(pointA, pointB, 98)), round(zero - 98));
+  t.equal(round(orientation.getDelta(pointA, pointB, 203)), round(zero - 203));
+  t.equal(round(orientation.getDelta(pointA, pointB, 306)), round(zero - 306));
 });
 
 test('Orientation test 270', function (t) {
@@ -150,8 +194,19 @@ test('Orientation test 270', function (t) {
   t.equal(orientation.getDelta(pointB, pointA, 286), 270 - 286);
 });
 
-test('Orientation test 271 to 314', {skip: true}, function (t) {
+test('Orientation test 271 to 314', function (t) {
   t.plan(5);
+  
+  var
+    pointA = Point([1, -1]),
+    pointB = Point([4, -5]),
+    zero = 270 + Math.acos(4/5) * 180 / Math.PI;
+
+  t.equal(round(orientation.getDelta(pointA, pointB, zero)), 0);
+  t.equal(round(orientation.getDelta(pointA, pointB, 25)), round(zero - 25));
+  t.equal(round(orientation.getDelta(pointA, pointB, 98)), round(zero - 98));
+  t.equal(round(orientation.getDelta(pointA, pointB, 203)), round(zero - 203));
+  t.equal(round(orientation.getDelta(pointA, pointB, 306)), round(zero - 306));
 });
 
 test('Orientation test 315', function (t) {
@@ -168,8 +223,19 @@ test('Orientation test 315', function (t) {
   t.equal(orientation.getDelta(pointB, pointA, 343), 315 - 343);
 });
 
-test('Orientation test 316 to 359', {skip: true}, function (t) {
+test('Orientation test 316 to 359', function (t) {
   t.plan(5);
+    
+  var
+    pointA = Point([1, -1]),
+    pointB = Point([5, -4]),
+    zero = 270 + Math.acos(3/5) * 180 / Math.PI;
+
+  t.equal(round(orientation.getDelta(pointA, pointB, zero)), 0);
+  t.equal(round(orientation.getDelta(pointA, pointB, 25)), round(zero - 25));
+  t.equal(round(orientation.getDelta(pointA, pointB, 98)), round(zero - 98));
+  t.equal(round(orientation.getDelta(pointA, pointB, 203)), round(zero - 203));
+  t.equal(round(orientation.getDelta(pointA, pointB, 306)), round(zero - 306));
 });
 
 test('Distance test', function (t) {

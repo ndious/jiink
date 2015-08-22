@@ -41,7 +41,7 @@ var
     var promise = new Promise(function (fulfill, reject) {
       var xhr = new XMLHttpRequest();
 
-      xhr.onreadystatechange = onreadystatechange.bind(xmlhttp, fulfill, reject);
+      xhr.onreadystatechange = onreadystatechange.bind(xhr, fulfill, reject);
 
       xhr.open(config.action, config.url, true);
       xhr.responseType = config.type;

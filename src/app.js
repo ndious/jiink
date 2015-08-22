@@ -4,6 +4,7 @@ var
   orientation = require('./orientation'),
   config = require('./config'),
   ui = require('./ui'),
+  session = require('./session'),
 
   me = false,
   target = false;
@@ -37,16 +38,15 @@ if (session.isNew()) {
 
 if ("geolocation" in navigator) {
   navigator.geolocation.watchPosition(function geolocationWatchPosition(position) {
-    me = new Point(create(position.coords));
+    me = new Point(position.coords);
   });
 
   window.ondeviceorientation =  function onDeviceOrientation(event) {
 
     if (me !== false && target !== false) {
-      delta = (orientation.getDelta(me, target, (360 - event.alpha)) * Math.PI / 180);
+      var delta = (orientation.getDelta(me, target, (360 - event.alpha)) * Math.PI / 180);
       ui.setDistance(orientation.getDistance(me, target));
+      ui.arrow.rotate(delta);
     }
-
-    ui.arrow.rotate(delta);
   };
 }

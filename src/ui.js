@@ -1,5 +1,5 @@
 var
-  session = require('./session');
+  session = require('./session'),
   /**
    * Element dictionary
    *
@@ -226,7 +226,7 @@ var
        * @return {Void}
        */
       center: function arrow_center() {
-        rotateArrow(0);
+        this.rotate(0);
       }
     }
   },

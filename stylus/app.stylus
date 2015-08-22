@@ -75,7 +75,17 @@ input::selection
   overflow: hidden
   width: 100%
 
-.home
+.home-view
+.session-view
+  display: hidden
+
+.container.home .home-view
+  display: block
+
+.container.session .session-view
+  display: block
+
+.home-view
   margin: 0 auto
 
   p

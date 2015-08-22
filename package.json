@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "tape test/*.test.js",
-    "watch-css": "stylus --watch --compress stylus/app.stylus --out dist/css/app.min.css",
+    "watch-css": "stylus --watch --compress stylus/*.stylus --out dist/css/app.min.css",
     "watch-js": "watchify src/app.js -o dist/js/app.js",
     "watch": "npm run watch-js & npm run watch-css",
     "build": "browserify src/app.js -o dist/js/app.js | uglifyjs dist/js/app.js > dist/js/app.min.js"

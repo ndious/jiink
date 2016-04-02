@@ -1,0 +1,64 @@
+body {
+    background-color: #6d7a8a;
+}
+
+#home {
+    //border: 1px solid red;
+}
+
+#arrow {
+    color: white;
+    font-family: Lucida Console, Monaco5, monospace;
+    font-size: 30px;
+    background-image: url(../../img/arrond.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+div#connect {
+    background-image: url(../../img/go.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+#debug {
+    border: 1px solid black;
+    position: absolute;
+    bottom: 0px;
+    left 0px;
+    width: 95%;
+}
+
+#number {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;      
+}
+
+#restore {
+    width:90%;
+}
+
+#connect {
+    width:90%;
+}
+
+.center {
+    text-align: center;
+}
+
+#distance {
+    position:relative;
+    //border: 1px solid red;
+    width: 150px;
+    height: 30px;
+    margin: 0 auto;
+    top: 80px;
+}

@@ -2,14 +2,14 @@
 <?php
 $dir = __DIR__ . DIRECTORY_SEPARATOR . 'sessions' . DIRECTORY_SEPARATOR;
 $request = (object)$_POST;
-$headers = getallheaders();
+
 $file = $request->track == 1 ? 2 : 1;
 $target = $request->track == 1 ? 1 : 2;
 
-if (!isset($headers['session-identifier'])) {
+if (!isset($_SERVER['HTTP_SESSION_IDENTIFIER'])) {
     return;
 }
-$session = $headers['session-identifier'];
+$session = $_SERVER['HTTP_SESSION_IDENTIFIER'];
 if (!file_exists($dir . $session)) {
     mkdir($dir . $session);
 }

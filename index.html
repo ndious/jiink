@@ -2,23 +2,45 @@
 <html>
 <head lang="en">
     <title>Jiinc!</title>
+    <link rel="stylesheet" type="text/css" href="dist/css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta charset="UTF-8">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="dist/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="dist/css/app.css">
 </head>
 <body>
     <div id="wallpaper" class="wallpaper">
         <div class="container home">
-            <header class="header">
-                <h1 class="logo text">Jiinc!</h1>
+            <header id="header" class="header center">
+                <h1 class="logo text"><img src="img/jiinc1.png"></h1>
             </header>
             <div id="home" class="home-view">
-                <div id="restore"><button>Restore old session</button></div>
+                <div id="connect"></div>
+                <div id="restore"><button>Restore Previous</button></div>
+                <div id="link"></div>
             </div>
-            <div id="session" class="session-view">
-                
+            <div id="session" class="session-view"></div>
+            
+            <div id="arrow">
+                <div id="distance">
+                    <span id="number"></span>
+                    <span id="unit"></span>
+                </div>
+            </div>
+            
+            <div id="debug">
+                <div id="hash"></div>
+                <div id="connected"></div>
+                <div style="padding: 0 5px; width: 45%; float:right;">
+                    <div><b>Target</b></div>
+                    <div id="request-count">0</div>
+                    <div id="trg-lat"></div>
+                    <div id="trg-lng"></div>
+                </div>
+                <div style="padding: 0 5px; width: 45%;">
+                    <div><b>Me</b></div>
+                    <div id="watch-count">0</div>
+                    <div id="lat"></div>
+                    <div id="lng"></div>
+                </div>
             </div>
         </div>
     </div>

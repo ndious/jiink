@@ -1,15 +1,17 @@
 var
   config = {
     request: {
-      url: 'https://io.jink.12.gy',
+      url: 'https://jinc-dious-1.c9.io/index.php',
       type: 'json',
       action: 'POST',
       accept: 'application/json'
     },
 
-    base_url: 'https://io.jink.12.gy',
+    base_url: 'https://jinc-dious-1.c9.io/',
 
-    token_length: 10
+    token_length: 2,
+    
+    debug: true
   };
 
 module.exports = config;

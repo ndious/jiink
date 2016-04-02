@@ -10,10 +10,7 @@ var
    * @return {Void}
    */
   buildRequestContent = function buildRequestContent(position) {
-    return JSON.stringify({
-        position: position,
-        track: session.getTrakId()
-    });
+    return 'lat=' + position.lat + '&lng=' + position.lng + '&track=' + session.getTrakId();
   },
   /**
    * Executed when Ajax call is ended
@@ -25,7 +22,7 @@ var
   onreadystatechange = function onreadystatechange(fulfill, reject) {
     if (this.readyState == XMLHttpRequest.DONE) {
       if(199 < this.status && 300 > this.status){
-        fulfill(JSON.parse(this.responseText));
+        fulfill(this.response);
       } else {
         reject(this.status);
       }
@@ -40,15 +37,23 @@ var
   sendRequest = function sendRequest(position) {
     var promise = new Promise(function (fulfill, reject) {
       var xhr = new XMLHttpRequest();
+      var params = buildRequestContent(position);
+      console.log(config, session.getHash());
 
       xhr.onreadystatechange = onreadystatechange.bind(xhr, fulfill, reject);
+      
+      /*xhr.ontimeout = function () {
+        reject(504);
+      };*/
 
       xhr.open(config.action, config.url, true);
       xhr.responseType = config.type;
       xhr.setRequestHeader('Accept', config.accept);
       xhr.setRequestHeader('session-identifier', session.getHash());
+      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      //xhr.timeout = 1500;
 
-      xhr.send(buildRequestContent(position));
+      xhr.send(params);
     });
 
     return promise;

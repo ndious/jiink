@@ -26,8 +26,8 @@ var
        * @return {Void}
        **/
       setCoords: function pointSetCoords(lat, lng) {
-        this.lat = lat;
-        this.lng = lng;
+        this.lat = ((Math.round(lat * 1000000)) / 1000000);
+        this.lng = ((Math.round(lng * 1000000)) / 1000000);
       },
       /**
        * Get value on X axis
@@ -35,6 +35,7 @@ var
        * @return {Number}
        **/
       getX: function pointGetX() {
+        
         return this.lng;
       },
       /**

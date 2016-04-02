@@ -61,7 +61,7 @@ var
    * @return {Boolean}
    */
   isMetricSytem = function isMetricSytem() {
-    if (element.unit.dataset.unit === 'metric') {
+    if (!element.unit.dataset.unit || element.unit.dataset.unit === 'metric') {
       return true;
     }
     return false;
@@ -137,13 +137,27 @@ var
     changeUnit: function ui_changeUnit() {
       if (isMetricSytem()) {
         element.unit.innerHTML = 'yd';
-        element.unit.dataset.unit = 'datum'
+        element.unit.dataset.unit = 'datum';
       } else {
         element.unit.innerHTML = 'm';
-        element.unit.dataset.unit = 'metric'
+        element.unit.dataset.unit = 'metric';
       }
       ui.printDistance();
     },
+    /**
+     * show distance unit
+     * 
+     * @return {Void}
+     */
+     printUnit: function ui_printUnit() {
+       if (isMetricSytem()) {
+        element.unit.innerHTML = 'm';
+        element.unit.dataset.unit = 'metric';
+      } else {
+        element.unit.innerHTML = 'yd';
+        element.unit.dataset.unit = 'datum';
+      }
+     },
     /**
      * On resize navigator window
      *
@@ -205,7 +219,7 @@ var
      * @return {Void}
      */
     printLink: function ui_printLink(url) {
-      document.getElementById('link').value = url;
+      document.getElementById('link').innerHTML = url;
     },
     /**
      * Arrow api
@@ -219,6 +233,7 @@ var
        * @return {Void}
        */
       rotate: function arrow_rotate(radiant) {
+        console.log(radiant);
         element.arrow.style.transform = 'rotate(' + radiant + 'rad)';
       },
       /**

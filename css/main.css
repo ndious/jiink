@@ -1,49 +1,107 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+
 body {
-    background-color: #6d7a8a;
+    font-family: Lucida Console, Monaco5, monospace;
+    background:linear-gradient(to left, #1a34c7, #0923b6);
+    margin: 0;
+    color: black;
+    overflow: hidden;
+}
+
+* {
+    //border:1px green solid;
 }
 
 #home {
     //border: 1px solid red;
 }
 
+.circle {
+    margin-top:8%;
+}
+
 #arrow {
-    color: white;
-    font-family: Lucida Console, Monaco5, monospace;
-    font-size: 30px;
-    background-image: url(../../img/arrond.png);
+    background-image: url(../../img/arrond2.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     text-align: center;
-    margin: 0 auto;
 }
 
 div#connect {
-    background-image: url(../../img/go.png);
+    background-image: url(../../img/goOrange.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    width: 250px;
+    height: 250px;
+}
+
+.bouton {
+    margin-top:20px;
+    color:black;
+    background-color: #ecf0f1;
+    padding: 8px;
+    border-radius: 40px;
+    border:3px solid #ff8a00;
     width: 200px;
-    height: 200px;
-    margin: 0 auto;
+    font-family: 'Open Sans Condensed', sans-serif;
+    -webkit-transition-duration: 4s; /* Safari */
+    transition-duration: 4s;
 }
 
 #debug {
-    border: 1px solid black;
+    //border: 1px solid white;
     position: absolute;
     bottom: 0px;
-    left 0px;
-    width: 95%;
+    width:99.5%;
+    opacity: 1;
+    overflow: hidden;
+    left: 1px;
+    font-size: 10px;
 }
 
+
 #number {
-  display: inline-block;
-  vertical-align: middle;
-  line-height: normal;      
+    //border:1px solid red;
+    font-size: 100px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #b9b9b9,
+               0 3px 0 #bbb,
+               0 4px 0 #6d00ef,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+    height: 90px;
+}
+
+#unit {    
+    color:white;
+    font-size: 25px;
+    top: 44px;
+    position: relative;
+    text-shadow:
+    -1px -1px 0 #6d00ef,
+    1px -1px 0 #6d00ef,
+    -1px 1px 0 #6d00ef,
+    1px 1px 0 #6d00ef; 
 }
 
 #restore {
-    width:90%;
+    margin-top:20px;
+    color:black;
+    background-color: white;
+    padding: 8px;
+    border-radius: 20px;
+    width: 200px;
 }
 
 #connect {
@@ -55,10 +113,24 @@ div#connect {
 }
 
 #distance {
+    color:#fff;
     position:relative;
     //border: 1px solid red;
     width: 150px;
-    height: 30px;
     margin: 0 auto;
     top: 80px;
+    vertical-align: middle;
+}
+
+header{
+    background-image: url("../../img/jiinc1.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width:60px;
+    position:absolute;
+    opacity: 0;
+    top:4px;
+    left:4px;
+    -webkit-transition-duration: 4s; /* Safari */
+    transition-duration: 4s;
 }

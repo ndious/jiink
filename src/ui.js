@@ -84,10 +84,10 @@ var
   upgradeUnit = function upgradeUnit(number) {
     if (isMetricSytem()) {
       element.unit.innerHTML = 'km';
-      number = (Math.round(element.number.dataset.value / 100) / 10);
+      number = Math.round(Math.round(element.number.dataset.value / 100) / 10);
     } else {
       element.unit.innerHTML = 'mi';
-      number = (Math.round(element.number.dataset.value * 0.0006213 * 10) / 10);
+      number = Math.round(Math.round(element.number.dataset.value * 0.0006213 * 10) / 10);
     }
     return number;
   },
@@ -111,7 +111,6 @@ var
       } else if (distance === undefined) {
         distance = 0;
       }
-
       element.number.dataset.value = distance;
 
       if (!isMetricSytem()) {
@@ -121,9 +120,17 @@ var
       if (distance > 999) {
         distance = upgradeUnit(distance);
       }
+      
+      if (distance > 99) {
+        element.number.style.fontSize = "80px";
+      } else {
+        element.number.style.fontSize = "100px";
+      }
+      
+      
 
       if (isNaN(distance)) {
-        distance = 0;
+        distance = "<span style=\"font-size:20px;\">Connecting</span>";
       }
 
       element.number.innerHTML = distance;
@@ -211,6 +218,7 @@ var
       element.restore.style.display = 'none';
       element.arrow.style.display = 'block';
       element.distance.style.display = 'block';
+      header.style.opacity = '1';
     },
     /**
      * print personal user link

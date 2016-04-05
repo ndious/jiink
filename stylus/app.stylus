@@ -7,12 +7,6 @@ $active-back = #C8F7C5
 $inactive-text = #F9690E
 $inactive-back = #FDE3A7
 
-@font-face
-  font-family: 'Open Sans Condensed'
-  font-style: normal
-  font-weight: 300
-  src: local('Open Sans Cond Light'), local('OpenSans-CondensedLight'), url(../font/open-sans-condensed.woff) format('woff')
-
 html
 body
   height: 100%

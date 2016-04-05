@@ -13,8 +13,17 @@ var
     var promise = request(me);
     promise.then(
       function (response) {
-        document.getElementById('hash').innerHTML = 'Session: ' + session.getHash();
-        document.getElementById('connected').innerHTML = 'Linked: ' + (response.connected == true ? 'oui' : 'non');
+        document.getElementById('hash').innerHTML = 'Session: <b>' + session.getHash() + '</b>';
+        document.getElementById('connected').innerHTML = 'Linked: ' + (response.connected == true ? '✓' : 'non');
+      
+       if((response.connected) == 1){
+			document.body.style.background = '#097d09';
+			document.body.style.background = 'linear-gradient(to left, #097d09, #06bf06)'; // GREEN
+		}else{
+			document.body.style.background = '#ff8a00';
+			document.body.style.background = 'linear-gradient(to left, #ff8a00, #ffd200)'; // ORANGE
+		}
+      
         var count = document.getElementById('request-count');
         count.innerHTML = parseInt(count.innerHTML, 10) + 1;
 

@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <title>Jiinc!</title>
-    <link rel="stylesheet" type="text/css" href="dist/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta charset="UTF-8">
 </head>
@@ -10,40 +10,52 @@
     <div id="wallpaper" class="wallpaper">
         <div class="container home">
             <header id="header" class="header center">
-                <h1 class="logo text"><img src="img/jiinc1.png"></h1>
+                <h1 class="logo text"></h1>
             </header>
+            <center>
             <div id="home" class="home-view">
-                <div id="connect"></div>
-                <div id="restore"><button>Restore Previous</button></div>
-                <div id="link"></div>
+                <div id="connect" class="circle"></div>
+                <br />
+                <p class="bouton"><a href="sms://+33663018402?body=Je%20vais%20te%20trouver.%20Click%20sur%20:%20http://link">Send a SMS message</a></p>
+                <p class="bouton" id="link"></p>
+                <p class="bouton" id="restore">Reconnect previous</p>
             </div>
             <div id="session" class="session-view"></div>
             
-            <div id="arrow">
+            <div id="arrow"  class="circle">
                 <div id="distance">
-                    <span id="number"></span>
+                    <span id="number"></span><br/>
                     <span id="unit"></span>
                 </div>
-            </div>
             
+            </div>
+            </center>
             <div id="debug">
-                <div id="hash"></div>
                 <div id="connected"></div>
-                <div style="padding: 0 5px; width: 45%; float:right;">
+                <div id="hash"></div>
+                <div style="float:right;text-align: right;">
                     <div><b>Target</b></div>
-                    <div id="request-count">0</div>
                     <div id="trg-lat"></div>
                     <div id="trg-lng"></div>
+                    <div id="request-count">0</div>
                 </div>
-                <div style="padding: 0 5px; width: 45%;">
-                    <div><b>Me</b></div>
-                    <div id="watch-count">0</div>
-                    <div id="lat"></div>
-                    <div id="lng"></div>
-                </div>
+                <div><b>Me</b></div>
+                <div id="lat"></div>
+                <div id="lng"></div>
+                <div id="watch-count">0</div>
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="dist/js/app.js"></script>
+    <script type="text/javascript" src="/dist/js/app.js"></script>
+    <script type="text/javascript">
+	function copy_to_clipboard(element)
+	{
+		if( window.clipboardData && clipboardData.setData )
+		{
+			clipboardData.setData("Text", element.innerHTML);
+		}
+		return false;
+	}
+</script>
 </body>
 </html>

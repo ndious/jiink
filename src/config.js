@@ -1,13 +1,13 @@
 var
   config = {
     request: {
-      url: 'https://jiink.io/index.php',
+      url: 'http://jiink.io/index.php',
       type: 'json',
       action: 'POST',
       accept: 'application/json'
     },
 
-    base_url: 'https://jiink.io/',
+    base_url: 'http://jiink.io/',
 
     token_length: 4,
 

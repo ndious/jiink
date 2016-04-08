@@ -130,7 +130,7 @@ var
       
 
       if (isNaN(distance)) {
-        distance = "<span style=\"font-size:20px;\">Connecting</span>";
+        distance = "<span style=\"font-size:20px;position:relative;bottom:25px;\">Loading...</span>";
       }
 
       element.number.innerHTML = distance;

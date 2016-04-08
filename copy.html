@@ -1,0 +1,17 @@
+<button id="copy">Copy</button>
+
+<div id="roger"></div>
+
+<input type="textarea" name=""/>
+
+<script type="text/javascript">
+    document.addEventListener('copy', function(e){
+        e.clipboardData.setData('text/plain', 'Hello, world!');
+        e.preventDefault(); // We want our data, not data from any selection, to be written to the clipboard
+        document.querySelector('#roger').innerHTML = "Roger roger !!";
+    });
+    document.querySelector('#copy').addEventListener('click', function (e) {
+        e.preventDefault();
+        document.execCommand('copy');
+    })
+</script>

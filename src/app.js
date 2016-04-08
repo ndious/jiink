@@ -15,7 +15,7 @@ var
       function (response) {
         document.getElementById('hash').innerHTML = 'Session: <b>' + session.getHash() + '</b>';
         document.getElementById('connected').innerHTML = 'Linked: ' + (response.connected == true ? '✓' : 'non');
-      
+
        if((response.connected) == 1){
 			document.body.style.background = '#097d09';
 			document.body.style.background = 'linear-gradient(to left, #097d09, #06bf06)'; // GREEN
@@ -23,7 +23,7 @@ var
 			document.body.style.background = '#ff8a00';
 			document.body.style.background = 'linear-gradient(to left, #ff8a00, #ffd200)'; // ORANGE
 		}
-      
+
         var count = document.getElementById('request-count');
         count.innerHTML = parseInt(count.innerHTML, 10) + 1;
 
@@ -35,7 +35,7 @@ var
       }
     );
   };
-  
+
 
 document.getElementById('distance').onclick = ui.changeUnit;
 
@@ -60,7 +60,7 @@ document.getElementById('restore').onclick = function restoreOnClick() {
 session.start();
 
 if (config.debug === false) {
-  document.getElementById('debug').style('display: none;')
+  document.getElementById('debug').style = 'display: none;';
 }
 
 if (session.isNew()) {
@@ -78,20 +78,19 @@ if ("geolocation" in navigator) {
     ui.printUnit();
     var count = document.getElementById('watch-count');
     count.innerHTML = parseInt(count.innerHTML, 10) + 1;
-    document.getElementById('lat').innerHTML = position.coords.latitude;
-    document.getElementById('lng').innerHTML = position.coords.longitude;
-    
-    document.getElementById('trg-lat').innerHTML = target.getY();
-    document.getElementById('trg-lng').innerHTML = target.getX();
-        
-
     if (config.debug === true) {
+      document.getElementById('lat').innerHTML = position.coords.latitude;
+      document.getElementById('lng').innerHTML = position.coords.longitude;
+
+      document.getElementById('trg-lat').innerHTML = target.getY();
+      document.getElementById('trg-lng').innerHTML = target.getX();
+
       console.log('me', me);
       console.log('target', target);
       console.log('distance', orientation.getDistance(me, target));
     }
-  }, function () {
-    
+  }, function () {
+
   }, {
     enableHighAccuracy: true,
     maximumAge: 0
@@ -101,7 +100,7 @@ if ("geolocation" in navigator) {
     if (me !== false && target !== false) {
       var delta = (orientation.getDelta(me, target, (360 - event.alpha)) * Math.PI / 180);
       ui.arrow.rotate(delta);
-      
+
       if (config.debug === true) {
         console.log(delta);
         console.log(orientation.getDistance(me, target));

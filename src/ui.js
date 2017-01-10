@@ -121,14 +121,12 @@ var
         distance = upgradeUnit(distance);
       }
       
-      if (distance > 99) {
-        element.number.style.fontSize = "80px";
-      } else {
-        element.number.style.fontSize = "100px";
-      }
+      //if (distance > 99) {
+      //  element.number.style.fontSize = "80px";
+      //} else {
+      //  element.number.style.fontSize = "100px";
+      //}
       
-      
-
       if (isNaN(distance)) {
         distance = "<span style=\"font-size:20px;position:relative;bottom:25px;\">Loading...</span>";
       }
@@ -143,10 +141,10 @@ var
      */
     changeUnit: function ui_changeUnit() {
       if (isMetricSytem()) {
-        element.unit.innerHTML = 'yd';
+        element.unit.innerHTML = 'yards';
         element.unit.dataset.unit = 'datum';
       } else {
-        element.unit.innerHTML = 'm';
+        element.unit.innerHTML = 'meters';
         element.unit.dataset.unit = 'metric';
       }
       ui.printDistance();
@@ -158,10 +156,10 @@ var
      */
      printUnit: function ui_printUnit() {
        if (isMetricSytem()) {
-        element.unit.innerHTML = 'm';
+        element.unit.innerHTML = 'meters';
         element.unit.dataset.unit = 'metric';
       } else {
-        element.unit.innerHTML = 'yd';
+        element.unit.innerHTML = 'yards';
         element.unit.dataset.unit = 'datum';
       }
      },
@@ -228,7 +226,14 @@ var
      */
     printLink: function ui_printLink(url) {
       document.getElementById('link').innerHTML = url;
+      if(session == null){
+        element.restore.style.display = 'none';
+      }
     },
+    //** printSendMessage: function ui_printSendMessage(url) {
+    //  var strLink = "sms://?body=Click%20le%20lien%20et%20autorise%20ton%20GPS.%20Jarrive%20\n" + url;
+    //  document.getElementById("smslink").setAttribute("href",strLink);
+    //},
     /**
      * Arrow api
      *

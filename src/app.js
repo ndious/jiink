@@ -66,10 +66,13 @@ if (config.debug === false) {
 if (session.isNew()) {
   ui.showHome();
   ui.printLink(config.base_url + '#' + session.getHash());
+  //ui.printSendMessage(config.base_url + '#' + session.getHash());
 } else {
   ui.showArrow();
   synchronize();
 }
+
+
 
 if ("geolocation" in navigator) {
   navigator.geolocation.watchPosition(function geolocationWatchPosition(position) {
@@ -88,7 +91,7 @@ if ("geolocation" in navigator) {
       console.log('me', me);
       console.log('target', target);
       console.log('distance', orientation.getDistance(me, target));
-    }
+    } 
   }, function () {
 
   }, {

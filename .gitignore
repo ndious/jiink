@@ -1,4 +1,5 @@
 node_modules/
+sessions/
 dist/js/*.js
 dist/css/*.css
 npm*

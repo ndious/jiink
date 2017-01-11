@@ -104,6 +104,6 @@ var
 
       return hypot(x, y) * 100000;
     }
-  };
+  }; 
 
 module.exports = orientation;

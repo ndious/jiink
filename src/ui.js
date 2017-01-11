@@ -1,3 +1,4 @@
+
 var
   session = require('./session'),
   /**
@@ -56,6 +57,10 @@ var
     restore: document.getElementById('restore')
   },
   /**
+   * Real distance betwen the 2 points
+   */
+  realDistance = 0,
+  /**
    * User is using metric system
    *
    * @return {Boolean}
@@ -83,10 +88,8 @@ var
    */
   upgradeUnit = function upgradeUnit(number) {
     if (isMetricSytem()) {
-      element.unit.innerHTML = 'km';
       number = Math.round(Math.round(element.number.dataset.value / 100) / 10);
     } else {
-      element.unit.innerHTML = 'mi';
       number = Math.round(Math.round(element.number.dataset.value * 0.0006213 * 10) / 10);
     }
     return number;
@@ -117,18 +120,20 @@ var
         distance = convertToMilles(distance);
       }
 
+      realDistance = distance;
+
       if (distance > 999) {
         distance = upgradeUnit(distance);
       }
-      
+
       //if (distance > 99) {
       //  element.number.style.fontSize = "80px";
       //} else {
       //  element.number.style.fontSize = "100px";
       //}
-      
+
       if (isNaN(distance)) {
-        distance = "<span style=\"font-size:20px;position:relative;bottom:25px;\">Loading...</span>";
+        distance = '<span style="font-size:20px;position:relative;bottom:25px;">Loading...</span>';
       }
 
       element.number.innerHTML = distance;
@@ -149,18 +154,31 @@ var
       }
       ui.printDistance();
     },
+    getLoopSpeed: function ui_getLoopSpeed() {
+      if (realDistance < 75) {
+        return 1000
+      } else if (realDistance < 500) {
+        return 2000
+      } else {
+        return 4000
+      }
+    },
     /**
      * show distance unit
-     * 
+     *
      * @return {Void}
      */
      printUnit: function ui_printUnit() {
        if (isMetricSytem()) {
-        element.unit.innerHTML = 'meters';
-        element.unit.dataset.unit = 'metric';
+         if (realDistance > 999) {
+           element.unit.innerHTML = 'kilometers';
+         } else {
+           element.unit.innerHTML = 'meters';
+         }
+         element.unit.dataset.unit = 'metric';
       } else {
-        element.unit.innerHTML = 'yards';
-        element.unit.dataset.unit = 'datum';
+         element.unit.innerHTML = 'yards';
+         element.unit.dataset.unit = 'datum';
       }
      },
     /**
@@ -180,6 +198,29 @@ var
       }
       element.arrow.style.marginTop = margintop.toString() + 'px';
       element.home.style.marginTop = margintop.toString() + 'px';
+    },
+
+    /**
+     * Recompute arow orientation on device orientation change
+     *
+     * @return {Void}
+     */
+    onOrientationChange: function ui_doOnOrientationChange()
+    {
+      console.log('orientation changing');
+      switch (window.orientation) {
+        case 90:
+          var rotationScreenAddToAngle = "1,5708";
+          document.getElementById('infoDiv').innerHTML = 'LANDSCAPE RIGHT';
+          break;
+        case -90:
+          var rotationScreenAddToAngle = "-1,5708";
+          document.getElementById('infoDiv').innerHTML = 'LANDSCAPE LEFT';
+          break;
+        default:
+          document.getElementById('infoDiv').innerHTML = '';
+          break;
+      };
     },
     /**
      * Update target activity

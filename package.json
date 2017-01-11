@@ -8,7 +8,8 @@
     "watch-css": "stylus --watch --compress stylus/*.stylus --out dist/css/app.min.css",
     "watch-js": "watchify src/app.js -o dist/js/app.js",
     "watch": "npm run watch-js & npm run watch-css",
-    "build": "browserify src/app.js -o dist/js/app.js | uglifyjs dist/js/app.js > dist/js/app.min.js"
+    "build": "browserify src/app.js -o dist/js/app.js | uglifyjs dist/js/app.js > dist/js/app.min.js",
+    "build-dev": "browserify -d src/app.js -o dist/js/app.js | uglifyjs dist/js/app.js > dist/js/app.min.js"
   },
   "keywords": [
     "location",
@@ -17,11 +18,14 @@
   "author": "nicolas dufreche <n.dufreche@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "browserify": "^10.2.3",
+    "grunt": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-exec": "^1.0.1",
     "stylus": "^0.51.1",
     "tape": "^4.0.0",
     "uglify-js": "^2.4.23",
-    "watchify": "^3.2.1",
-    "browserify": "^10.2.3"
+    "watchify": "^3.2.1"
   },
   "dependencies": {
     "es6-promise": "^2.1.1"

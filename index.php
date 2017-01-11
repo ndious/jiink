@@ -25,7 +25,7 @@ $target = new stdClass();
 $connected = false;
 if (file_exists($targetFile)) {
     $target = json_decode(file_get_contents($targetFile));
-    $connected = filemtime($targetFile) > ((new DateTime())->format('U') - 20);
+    $connected = (filemtime($targetFile) > ((new DateTime())->format('U') - 5)) && is_object($target) && $target->lat !== 'undefined';
 }
 $response = [
     'position' => $target,

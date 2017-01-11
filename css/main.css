@@ -28,14 +28,16 @@ p{
     font-size: 18px;
 }
 
-#fail {
+#infoDiv {
     text-align: center;
-    color:red;
+    color:blue;
     left:10%;
     width: 80%;
     margin: 0 auto;
     position: absolute;
-    bottom:50px;
+    bottom:25%;
+    -webkit-transition-duration: 4s; /* Safari */
+    transition-duration: 4s;
 }
 
 #home {
@@ -47,15 +49,17 @@ p{
 }
 
 #arrow {
-    margin: 30px auto 0 auto;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
     background-image: url(../../img/Cercle01.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     width: 250px;
     height: 250px;
     text-align: center;
-    box-shadow: -1px 10px 10px 1px rgba(0, 0, 0, 0.7); 
-    border-radius: 130px;
+    box-shadow: 0px 0px 10px 15px rgba(200, 200, 200, 0.7);
+    border-radius: 200px;
     border: 4px solid #6d00ef;
 }
 
@@ -75,7 +79,6 @@ div#connect {
     padding: 8px;
     border-radius: 40px;
     border:2px solid #ff8a00;
-    font-family: 'Open Sans Condensed', sans-serif;
     -webkit-transition-duration: 4s; /* Safari */
     transition-duration: 4s;
 }
@@ -107,6 +110,7 @@ span.bouton{
 }
 
 #prepareLink{
+    margin-top: 15%;
     -webkit-transition-duration: 2s; /* Safari */
     transition-duration: 2s;
 }
@@ -123,14 +127,14 @@ span.bouton{
     align:center;
     left:25%;
     position: absolute;
-    bottom:20px;
+    bottom:30%;
     background-color: gold;
     box-shadow: -1px 10px 10px 1px rgba(0, 0, 0, 0.7); 
     border:1px dashed red;
     width: 50%;
     height:20px;
-    -webkit-transition-duration: 4s; /* Safari */
-    transition-duration: 4s;
+    -webkit-transition-duration: 2s; /* Safari */
+    transition-duration: 2s;
 }
 
 .restore {

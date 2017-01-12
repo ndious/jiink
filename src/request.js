@@ -41,7 +41,7 @@ var
       console.log(config, session.getHash());
 
       xhr.onreadystatechange = onreadystatechange.bind(xhr, fulfill, reject);
-      
+
       /*xhr.ontimeout = function () {
         reject(504);
       };*/

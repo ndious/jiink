@@ -30,6 +30,12 @@ var
      *
      * @type {NodeElement}
      */
+    debugTable: document.getElementById('debugTable'),
+    /**
+     * Arrow element
+     *
+     * @type {NodeElement}
+     */
     arrow: document.getElementById('arrow'),
     /**
      * Home view
@@ -133,7 +139,8 @@ var
       //}
 
       if (isNaN(distance)) {
-        distance = '<span style="font-size:20px;position:relative;bottom:25px;">Loading...</span>';
+        distance = '';
+          document.getElementById('infoDiv').innerHTML = 'Waiting for destination';
       }
 
       element.number.innerHTML = distance;
@@ -211,11 +218,11 @@ var
       switch (window.orientation) {
         case 90:
           var rotationScreenAddToAngle = "1,5708";
-          document.getElementById('infoDiv').innerHTML = 'LANDSCAPE RIGHT';
+          //document.getElementById('infoDiv').innerHTML = 'LANDSCAPE RIGHT';
           break;
         case -90:
           var rotationScreenAddToAngle = "-1,5708";
-          document.getElementById('infoDiv').innerHTML = 'LANDSCAPE LEFT';
+          //document.getElementById('infoDiv').innerHTML = 'LANDSCAPE LEFT';
           break;
         default:
           document.getElementById('infoDiv').innerHTML = '';
@@ -243,7 +250,6 @@ var
      */
     showHome: function ui_printHome() {
       element.home.style.display = 'block';
-      element.restore.style.display = 'block';
       element.arrow.style.display = 'none';
       element.distance.style.display = 'none';
     },
@@ -257,6 +263,7 @@ var
       element.restore.style.display = 'none';
       element.arrow.style.display = 'block';
       element.distance.style.display = 'block';
+      element.debugTable.style.opacity = '0.7';
       header.style.opacity = '1';
     },
     /**

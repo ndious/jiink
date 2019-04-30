@@ -1,5 +1,6 @@
 node_modules/
-sessions/
+sessions/*
+!sessions/.gitkeep
 dist/js/*.js
 dist/css/*.css
 npm*

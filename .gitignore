@@ -4,4 +4,4 @@ sessions/*
 dist/js/*.js
 dist/css/*.css
 npm*
-.well-known/
+.well-known
